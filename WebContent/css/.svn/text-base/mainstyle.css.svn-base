@@ -1,0 +1,66 @@
+.bdy{	
+	color:#6592A9;
+	font-size:x-small;
+	background-color:#efefef;
+}
+.labelCls{
+	color:#555;margin:5px;font-size:12px;
+}
+.labelCls2{
+	color:#0000ff;margin:5px;font-size:16px;font-weight:bold;
+}
+.labelCls3{
+	color:#ff0000;margin:5px;font-size:12px;
+}
+.imgCls{
+	cursor:hand;
+	border:1px #ccc solid;
+}
+.warnlbl{
+	color:red;margin:5px;font-size:12px;
+}
+.tblCls{
+	font-size:8pt;
+	color:#555;
+	border-collapse:"collapse";
+	margin:4px;
+}
+.tblCls .title{
+	background-color:#efefef;
+	border:1px solid gray;
+	font-size:12pt;
+	padding:3px;
+	font-weight:bold;
+}
+.tblCls .td1{
+	background-color:#efefef;
+	border:1px solid gray;
+	padding:3px;
+}
+.tblCls .td2{
+	border:1px solid gray;
+	padding:3px;
+}
+.ipt{
+	background-color:#fff;
+	border:1px solid #ccc;
+}
+div.button {
+    background: url('../images/bg_button_a.gif') no-repeat scroll top right;
+    color: #444;
+    float: left;
+    font: normal 12px arial, sans-serif;
+    height: 24px;
+    margin-right: 6px;
+    padding-right: 18px; /* sliding doors padding */
+    background-color:#efefef;
+    cursor:hand;
+}
+div.button span {
+    background: url('../images/bg_button_span.gif') no-repeat;
+    display: block;
+    line-height: 14px;
+    padding: 5px 0 5px 18px;
+    background-color:#efefef;
+    cursor:hand;
+}

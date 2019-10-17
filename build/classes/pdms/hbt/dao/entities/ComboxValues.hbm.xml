@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pdms.hbt.dao.entities.ComboxValues" table="COMBOXVALUES" schema="pdms">
+    	<id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="code" type="java.lang.String">
+            <column name="code" length="50" />
+        </property>
+        <property name="comvalue" type="java.lang.Integer">
+            <column name="comvalue"/>
+        </property>
+        <property name="comview" type="java.lang.String">
+            <column name="comview" length="200"/>
+        </property>
+        <property name="createdt" type="java.sql.Timestamp">
+            <column name="createdt" length="23"/>
+        </property>
+    </class>
+</hibernate-mapping>

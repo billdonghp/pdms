@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pdms.hbt.dao.entities.Pregister" table="Pregister" schema="pdms">
+        <id name="code" type="java.lang.String">
+        	<column name="code" length="30" />
+         	<generator class="assigned" />
+     	</id>
+        <property name="pname" type="java.lang.String">
+            <column name="pname" length="20" not-null="true" />
+        </property>
+        <property name="sex" type="java.lang.Integer">
+            <column name="sex" length="8" />
+        </property>
+        <property name="birthday" type="java.sql.Timestamp">
+            <column name="birthday" length="23" />
+        </property>
+        <property name="nation" type="java.lang.String">
+            <column name="nation" length="20" />
+        </property>
+        <property name="politicsStatus" type="java.lang.Integer">
+            <column name="politicsStatus" length="8"  />
+        </property>
+        <property name="jiDt" type="java.sql.Timestamp">
+            <column name="jiDt" length="23"  />
+        </property>
+        <property name="reDt" type="java.sql.Timestamp">
+            <column name="reDt" length="23"  />
+        </property>
+        <property name="filePath" type="java.lang.String">
+            <column name="filePath" length="80"  />
+        </property>
+        <property name="culture" type="java.lang.Integer">
+            <column name="culture" length="8"  />
+        </property>
+        <property name="combatant" type="java.lang.Integer">
+            <column name="combatant" length="8"  />
+        </property>
+        <property name="nonWar" type="java.lang.Integer">
+            <column name="nonWar" length="8"  />
+        </property>
+        <property name="body" type="java.lang.Integer">
+            <column name="body" length="8"  />
+        </property>
+        <property name="organization" type="java.lang.String">
+            <column name="organization" length="80"  />
+        </property>
+        <property name="pno" type="java.lang.String">
+            <column name="pno" length="80" />
+        </property>
+        <property name="troopsType" type="java.lang.Integer">
+            <column name="troopsType" length="8" />
+        </property>
+        <property name="docNum" type="java.lang.String">
+            <column name="docNum" length="80"  />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="address" length="80"  />
+        </property>
+        <property name="remark1" type="java.lang.String">
+            <column name="remark1" length="4000"  />
+        </property>
+        <property name="remark2" type="java.lang.String">
+            <column name="remark2" length="4000" />
+        </property>
+        <property name="jiSite" type="java.lang.String">
+            <column name="jiSite" length="200" />
+        </property>
+        <property name="rp" type="java.lang.String">
+            <column name="rp" length="500" />
+        </property>
+        <property name="sts" type="java.lang.Integer">
+            <column name="sts" length="8" />
+        </property>
+        <property name="crDt" type="java.sql.Timestamp">
+            <column name="crDt" length="23"  />
+        </property>
+        <property name="uptDt" type="java.sql.Timestamp">
+            <column name="uptDt" length="23"  />
+        </property>
+    </class>
+</hibernate-mapping>

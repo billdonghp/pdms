@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置国际化资源信息 -->
+	<!--constant name = "struts.custom.i18n.resources" value = "doopro.locale.message"/-->
+	<!-- 配置编码格式 -->
+	<constant name = "struts.i18n.encoding" value = "UTF-8"/>
+	<!-- 配置扩展名 -->
+	<constant name="struts.action.extension" value="action"/>
+	<!-- 配置文件上传大小 -->
+	<constant name="struts.multipart.maxSize" value="5242880"/> 
+	
+	<!-- 用户信息管理 -->
+	<package name = "systemuser" namespace = "/systemuser" extends = "json-default">
+		
+		<!-- 获取系统所有用户 -->
+		<action name = "gau" class = "pdms.action.user.GetAllUserAction">
+			<result type = "json"/>
+		</action>
+		<!-- 用户操作（新增、修改） -->
+		<action name = "ui-*" method = "{1}" class = "pdms.action.user.UserOptAction">
+			<result type = "json"/>
+		</action>
+		<!-- 修改密码 -->
+		<action name = "cpwd" class = "pdms.action.user.ChangePwdAction">
+			<result type = "json"/>
+		</action>	
+		<!-- 导出用户信息 -->
+		<action name="excel" class="pdms.action.user.ExportUiAction">
+            <result type="stream">
+	            <param name="contentType">application/vnd.ms-excel</param>
+	            <param name="inputName">is</param>
+	            <param name="contentDisposition">filename="userinfo.xls"</param>
+	            <param name="bufferSize">1024</param>
+            </result>
+        </action>
+	</package>
+	<!-- 用户登录模块  -->
+	<package name = "lg" namespace = "/lg" extends = "json-default">
+		<!-- 检查用户是否登录 -->
+		<action name = "cklogin" class = "pdms.action.login.CheckLoginAction">
+			<result type = "json"/>
+		</action>
+		<!-- 用户登录系统 -->
+		<action name = "login" class = "pdms.action.login.LoginAction">
+			<result type = "json"/>
+			<!-- 超级管理员密码,使用administrator登录时的密码,具备系统全部权限,主要是菜单管理用于开发新的模块以及系统法人信息维护 -->
+			<param name = "adminpwd">system001</param>
+		</action>
+		<!-- 用户登出系统 -->
+		<action name = "logout" class = "pdms.action.login.LogoutAction">
+			<result type = "json"/>
+		</action>
+	</package>
+	<package name = "systemmgt" namespace = "/systemmgt" extends = "json-default">
+		<!-- 获取系统所有菜单 gam:Get All Menu -->
+		<action name = "gam" class = "pdms.action.memu.GetMenuAction">
+			<result type = "json"/>
+		</action>
+		<!-- 编辑系统菜单（增加、删除、修改） -->
+		<action name = "optmenu-*" method = "{1}" class = "pdms.action.memu.MenuOptAction">
+			<result type = "json"/>
+		</action>
+		<!-- 获取所有父菜单 -->
+		<action name = "gap" class = "pdms.action.memu.GetParentMenuAction">
+			<result type = "json"/>
+		</action>
+		<!-- 获取系统菜单 -->
+		<action name = "tm" class = "pdms.action.memu.TreeNodeAction">
+			<result type = "json">
+				<param name = "root">
+					list
+				</param>
+			</result>
+		</action>
+	</package>
+	<!-- WORKPLACE提案数据获取 -->
+	<package name = "workplace" namespace = "/workplace" extends = "json-default">
+		<!-- 档案现况统计 -->
+		<action name = "getProCurSts" class = "pdms.action.workplace.GetProCurrentSituation">
+			<result type = "json"/>
+		</action>
+		<!-- 提案操作  -->
+		<action name = "userrole" class = "pdms.action.workplace.ProOptAction">
+			<result type = "json"/>
+		</action>
+		
+		<!-- 提案审批  -->
+		<action name = "approval" class = "pdms.action.workplace.WorkListControllerAction">
+			<result type = "json"/>
+		</action>
+		<!-- 打印浏览 -->
+		<action name = "area"  class = "pdms.action.workplace.PrintAreaAction" >
+			<result type = "json"/>
+		</action>
+	</package>
+	<!-- 信息登记 -->
+	<package name = "preg" namespace = "/preg" extends = "json-default">
+		<action name = "do-*" method = "{1}" class = "pdms.action.register.PersonInfoControllerAction">
+			<result type = "json"/>
+		</action>
+		<action name = "query" class = "pdms.action.register.GetPersonControllerAction">
+			<result type = "json"/>
+		</action>
+	</package>
+	<!-- 系统下拉列表信息管理 -->
+	<package name = "systemcom" namespace = "/combox" extends = "json-default">
+		<!-- 获取系统所有的下拉列表信息gacombox:Get All Role -->
+		<action name = "gacombox" class = "pdms.action.combox.GetAllComboxes">
+			<result type = "json"/>
+		</action>	
+		<!-- 新增、修改 -->
+		<action name = "comboxopt-*" method = "{1}" class = "pdms.action.combox.ComboxOptAction">
+			<result type = "json"/>
+		</action>	
+		<!-- 根据CODE获取combox下拉值 -->
+		<action name = "getcomvls" class = "pdms.action.combox.GetComboxeValues">
+			<result type = "json"/>
+		</action>
+	   
+	</package>
+	<package name = "perfile"  namespace = "/pf" extends = "json-default">
+		<!-- 上传改善前后图片/附件 -->	
+		<action name = "upldimg" class = "pdms.action.file.UploadImageAction">
+     		<param name="savePath">D:\pdms\WebContent\personfile</param>
+     		<result name = "success" type = "json">
+     			 <param name="ContentType">text/html</param>
+     		</result>
+     	</action>
+     	<!-- 下载附件 -->
+		<action name="dwldimg" class="pdms.action.down.DownAttachmentAction">
+			<param name="inputPath">D://pdms/WebContent/</param>
+           <result type="stream">
+              <param name="contentType">application/octet-stream</param>
+              <param name="inputName">targetFile</param>
+              <param name="contentDisposition">attachment;filename="${fileName}"</param>
+              <param name="bufferSize">4096</param>
+           </result>
+        </action>
+        
+	</package>
+	<package name = "systemrole" namespace = "/systemrole" extends = "json-default">
+		<!-- 新增/修改角色 ar:add role -->
+		<action name = "ar" class = "pdms.action.role.AddRoleAction">
+			<result type = "json"/>
+		</action>
+		<!-- 获取系统菜单-->
+		<action name = "gatn" class = "pdms.action.role.AuthTreeEditAction">
+			<result type = "json">
+				<param name = "root">
+					list
+				</param>
+			</result>
+		</action>
+		<!-- 获取系统所有的角色gar:Get All Role -->
+		<action name = "gar" class = "pdms.action.role.GetAllRoleAction">
+			<result type = "json"/>
+		</action>
+		<!-- 获取系统角色（用于下拉列表） gr:Get Role -->
+		<action name = "gr" class = "pdms.action.role.GetRoleAction">
+			<result type = "json"/>
+		</action>
+	</package>
+	<!-- 操作手册下载 -->
+	<package name = "syscommon" extends = "struts-default">
+		<action name="manual" class="pdms.action.down.DownLoadAction">
+      		<param name="inputPath">/files/</param>
+      		<result name="success" type="stream">
+       		   <param name="contentType">application/vnd.ms-powerpoint</param>
+		       <param name="inputName">targetFile</param>
+		       <param name="contentDisposition">filename="manual.pptx"</param>
+		       <param name="bufferSize">4096</param>
+      		</result>
+     	</action>
+	</package>
+</struts>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pdms.hbt.dao.entities.Bginfo" table="BGINFO" schema="dbo">
+        <id name="bgid" type="java.lang.Integer">
+            <column name="bgid" />
+            <generator class="identity" />
+        </id>
+        <property name="bgcd" type="java.lang.String">
+            <column name="bgcd" length="8" not-null="true" />
+        </property>
+        <property name="bgennm" type="java.lang.String">
+            <column name="bgennm" length="20" not-null="true" />
+        </property>
+        <property name="bgzhnm" type="java.lang.String">
+            <column name="bgzhnm" length="80" not-null="true" />
+        </property>
+        <property name="createdt" type="java.sql.Timestamp">
+            <column name="createdt" length="23" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

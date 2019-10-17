@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pdms.hbt.dao.entities.Sysmenu" table="SYSMENU" schema="pdms">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="text" type="java.lang.String">
+            <column name="text" length="30" not-null="true" />
+        </property>
+        <property name="qtip" type="java.lang.String">
+            <column name="qtip" length="30" not-null="true" />
+        </property>
+        <property name="url" type="java.lang.String">
+            <column name="url" length="50" not-null="true" />
+        </property>
+        <property name="leaf" type="java.lang.Integer">
+            <column name="leaf" not-null="true" />
+        </property>
+        <property name="parentId" type="java.lang.Integer">
+            <column name="parentId" not-null="true" />
+        </property>
+        <property name="enabled" type="java.lang.Integer">
+            <column name="enabled" not-null="true" />
+        </property>
+        <property name="str1" type="java.lang.String">
+            <column name="str1" length="30" />
+        </property>
+        <property name="str2" type="java.lang.String">
+            <column name="str2" length="30" />
+        </property>
+        <property name="str3" type="java.lang.String">
+            <column name="str3" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

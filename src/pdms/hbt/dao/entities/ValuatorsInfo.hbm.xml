@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="pdms.hbt.dao.entities.ValuatorsInfo" table="SYSTEMVALUATORS" schema="pdms">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="bg" type="java.lang.String">
+            <column name="bg" length="10"/>
+        </property>
+         <property name="code" type="java.lang.String">
+            <column name="code" length="10" />
+        </property>
+        <property name="dptNm" type="java.lang.String">
+            <column name="dptNm" length="100" />
+        </property>
+        <property name="level" type="java.lang.Integer">
+            <column name="level"/>
+        </property>
+        <property name="userid" type="java.lang.String">
+            <column name="userid" length="10" />
+        </property>
+        <property name="usernm" type="java.lang.String">
+            <column name="usernm" length="20" />
+        </property>
+        <property name="deptcd" type="java.lang.String">
+            <column name="deptcd" length="10" />
+        </property>
+        <property name="deptnm" type="java.lang.String">
+            <column name="deptnm" length="100" />
+        </property>
+         <property name="udeptCd" type="java.lang.String">
+            <column name="udeptCd" length="20" />
+        </property>
+        <property name="udeptNm" type="java.lang.String">
+            <column name="udeptNm" length="20" />
+        </property>
+        <property name="register" type="java.lang.String">
+            <column name="register" length="100" />
+        </property>
+        <property name="retdt" type="java.sql.Timestamp">
+            <column name="retdt" length="23" />
+        </property>
+        <property name="updator" type="java.lang.String">
+            <column name="updator" length="100" />
+        </property>
+        <property name="uptdt" type="java.sql.Timestamp">
+            <column name="uptdt" length="23" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status"/>
+        </property>
+    </class>
+</hibernate-mapping>

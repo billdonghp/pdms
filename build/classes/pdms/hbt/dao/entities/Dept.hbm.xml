@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="pdms.hbt.dao.entities.Dept" table="DEPT" schema="pdms">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="deptcd" type="java.lang.String">
+            <column name="deptcd" length="10" />
+        </property>
+        <property name="deptnm" type="java.lang.String">
+            <column name="deptnm" length="100" />
+        </property>
+         <property name="deptshortnm" type="java.lang.String">
+            <column name="deptshortnm" length="300" />
+        </property>
+         <property name="deptfullnm" type="java.lang.String">
+            <column name="deptfullnm" length="400" />
+        </property>
+         <property name="updeptcd" type="java.lang.String">
+            <column name="updeptcd" length="10" />
+        </property>
+        <property name="regdt" type="java.sql.Timestamp">
+            <column name="regdt" length="23" />
+        </property>
+        <property name="dept_level" type="java.lang.String">
+            <column name="dept_level" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

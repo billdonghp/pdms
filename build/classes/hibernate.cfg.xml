@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		
+		<!-- 正式数据库 -->
+		<property name="hibernate.connection.url" >
+			
+			<![CDATA[jdbc:mysql://10.41.128.109:3306/pdms?useUnicode=true&characterEncoding=utf8&useSSL=false&useOldAliasMetadataBehavior=true]]>
+		</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">
+			<![CDATA[admin]]>
+		</property  >
+		<property name="hibernate.connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+		<!-- <property name="hbm2ddl.auto">update</property> -->
+		
+		<!-- 系统下拉列表 -->
+		<mapping resource="pdms/hbt/dao/entities/ComboxValues.hbm.xml" />
+		<!-- 用户信息表 -->
+		<mapping resource="pdms/hbt/dao/entities/Userinfo.hbm.xml" />
+		<!-- 系统角色表 -->
+		<mapping resource="pdms/hbt/dao/entities/Sysrole.hbm.xml" />
+		<!-- 登陆履历信息表 -->
+		<mapping resource="pdms/hbt/dao/entities/Loginhistory.hbm.xml" />
+		<!-- 系统菜单表 -->
+		<mapping resource="pdms/hbt/dao/entities/Sysmenu.hbm.xml" />
+		<!-- 系统菜单角色映射表 -->
+		<mapping resource="pdms/hbt/dao/entities/Rmtb.hbm.xml" />
+		<!-- 人员信息登记表 -->
+		<mapping resource="pdms/hbt/dao/entities/Pregister.hbm.xml" />
+		
+	</session-factory>
+</hibernate-configuration>
